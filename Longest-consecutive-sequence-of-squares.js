@@ -39,3 +39,5 @@ function longestSequence(n){
 function sum(r){
 return r.reduce((a,b)=> a + (b*b),0);
 }
+
+// or
