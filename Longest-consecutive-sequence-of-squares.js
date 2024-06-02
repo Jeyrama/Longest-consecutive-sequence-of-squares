@@ -22,3 +22,20 @@ Note: Return an empty array if no such sequence exists.
 
 
 // Solution
+
+function longestSequence(n){
+  // your solution here
+  let i =2;
+  let r = [1];
+  while(r.length > 0){
+    let s = sum(r);
+    if(s== n) return r;
+    if(s < n) r.push(i++);
+    else r.shift();
+  }
+  return [];
+}
+
+function sum(r){
+return r.reduce((a,b)=> a + (b*b),0);
+}
