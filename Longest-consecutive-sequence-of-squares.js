@@ -41,3 +41,26 @@ return r.reduce((a,b)=> a + (b*b),0);
 }
 
 // or
+
+function longestSequence(n){
+  const maxInt = Math.floor(Math.sqrt(n, 2));
+
+  let currentNum = 0;
+  let currentSeq = [];
+  let longestSeq = [];
+  
+  for (let i = maxInt; i > 0; i--) {
+    let currentSum = currentNum + Math.pow(i, 2);
+
+    currentNum = currentSum;
+    currentSeq.unshift(i);
+
+    if (currentSum > n) {
+      currentNum -= Math.pow(currentSeq.pop(), 2);
+    } else if (currentSum === n && currentSeq.length > longestSeq.length) {
+      longestSeq = currentSeq.slice();
+    }
+  }
+
+  return longestSeq;
+}
